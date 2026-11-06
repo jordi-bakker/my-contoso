@@ -2,6 +2,20 @@
 
 ## Agent skills
 
+### Issue tracker
+
+Issues live in GitHub Issues for `jordi-bakker/my-contoso` (via the `gh` CLI). See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context. See `docs/agents/domain.md`.
+
+### Skill index
+
 If a prompt starts with `/<name>` and that skill isn't loaded, read its `SKILL.md` from the table and follow it.
 
 | Skill | SKILL.md | User-only |
