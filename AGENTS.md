@@ -42,3 +42,17 @@ If a prompt starts with `/<name>` and that skill isn't loaded, read its `SKILL.m
 | karpathy-guidelines | `.agents/skills/karpathy-guidelines/SKILL.md` | no |
 | accessibility | `.agents/skills/accessibility/SKILL.md` | no |
 | impeccable | `.github/skills/impeccable/SKILL.md` | no |
+
+
+## Working rules
+
+- Always follow the `karpathy-guidelines` skill: think before coding, keep it simple, change only what's needed, and define success criteria, then verify them.
+- The app runs at http://localhost:5174 (Vite `strictPort`). Parallel sessions check their work on port 5176 with `npm run dev -- --port 5176`.
+- Build one vertical slice (one ticket) at a time. After each slice, run tests, type checking and the build, then check the page in the browser at 390px and 1280px wide. Finally, give the human a 3-5 step acceptance script. In interactive mode, wait for their approval before committing.
+- Use Tailwind CSS only, with no other UI libraries. Follow PRODUCT.md and DESIGN.md when they exist.
+- Don't add dependencies without asking first.
+- Use synthetic data only. Never use real personal data.
+- A customer may only ever see their own policies. When a change loads customer data or sends it to the browser, run the security-review agent before you give the acceptance script, and fix what it finds.
+- Reviews and audits judge the work against its ticket. If a finding is already covered by another open ticket, list it with that ticket's number instead of fixing it.
+- If a prompt starts with `/<name>` and that skill isn't loaded, read `.agents/skills/<name>/SKILL.md` or `.github/skills/<name>/SKILL.md` and follow it. Do not retry the app skill loader for repository-local skills.
+- Never skip or work around the hooks in `.github/hooks/`, and change them only when the human asks. If the quality gate blocks a commit, fix what fails.
