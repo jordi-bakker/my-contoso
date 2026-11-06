@@ -32,7 +32,12 @@ One plain-language page per customer that is both the self-service answer and th
 - Shows each policy's cover, deductible and premium, and the total premium per month.
 - **Privacy:** a customer only ever sees their own policies. The browser never receives another customer's data.
 - Synthetic data only. Never use real personal data.
-- Open decisions: real authentication (none yet) and how the two data sources are reconciled in production.
+- The two data sources are merged on the server by policy number; the browser only gets the merged data of one customer (ADR 0001). The admin export is the source of truth for status, deductible and premium; the coverage feed for cover. A missing part is shown plainly, and a policy is never hidden.
+- `?customer=` is demo-only and not a security boundary (ADR 0002). A missing or unknown customer gets a neutral "We couldn't find that customer" message.
+- The monthly total counts active policies only, with quarterly or yearly premiums converted to a monthly amount and labelled. Ended or cancelled policies appear in a separate, quieter section and are not in the total.
+- Customers and staff see the identical page, with no staff-only fields or mode. Each policy shows its policy number so both sides can refer to it.
+- Each deductible is shown as a euro amount with a one-line plain explanation next to it.
+- Open decisions: real authentication (none yet; must replace `?customer=` before any real data) and how the two data sources are reconciled in production.
 - The repository may not yet contain the app code or `data/` files; this record describes the product as intended.
 
 ## Brand Commitments
